@@ -1,11 +1,10 @@
 project:
   type: website
+  output-dir: _site
 
 website:
-  title: "Versel1 - Mi Sitio Web"
+  title: "versel1"
   
 format:
   html:
     theme: cosmo
-    toc: true
-    self-contained: false
