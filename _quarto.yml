@@ -1,0 +1,11 @@
+project:
+  type: website
+
+website:
+  title: "Versel1 - Mi Sitio Web"
+  
+format:
+  html:
+    theme: cosmo
+    toc: true
+    self-contained: false
