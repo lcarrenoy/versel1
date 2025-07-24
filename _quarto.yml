@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: _site
+  output-dir: _site  # Importante: debe ser _site
 
 website:
   title: "versel1"
@@ -8,3 +8,4 @@ website:
 format:
   html:
     theme: cosmo
+    toc: true
