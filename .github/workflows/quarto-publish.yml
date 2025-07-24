@@ -1,0 +1,42 @@
+on:
+  workflow_dispatch:  # Permite ejecutar manualmente
+  push:
+    branches: main    # Se ejecuta automáticamente al hacer push a main
+
+name: Render and Publish
+
+jobs:
+  build-deploy:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read      # Leer el repositorio
+      pages: write       # Escribir en GitHub Pages
+      id-token: write    # Autenticación
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        # Descarga todo el código de tu repositorio
+        
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+        # Instala Quarto en el servidor virtual
+        
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
+        # Convierte tus archivos .qmd a HTML
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+        # Configura GitHub Pages
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          path: '_site'
+        # Sube los archivos HTML generados
+          
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        # Publica en GitHub Pages
